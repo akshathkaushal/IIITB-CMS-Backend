@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-04-22T17:47:04+0530",
+    date = "2022-04-23T18:20:05+0530",
     comments = "version: 1.3.1.Final, compiler: javac, environment: Java 11.0.14.1 (Ubuntu)"
 )
 @Component
@@ -52,8 +52,8 @@ public class PostMapperImpl extends PostMapper {
         PostResponse postResponse = new PostResponse();
 
         postResponse.setSubpostName( postSubpostName( post ) );
+        postResponse.setRollNo( postUserRollNo( post ) );
         postResponse.setId( post.getPostId() );
-        postResponse.setUserName( postUserUsername( post ) );
         postResponse.setPostName( post.getPostName() );
         postResponse.setUrl( post.getUrl() );
         postResponse.setDescription( post.getDescription() );
@@ -82,7 +82,7 @@ public class PostMapperImpl extends PostMapper {
         return name;
     }
 
-    private String postUserUsername(Post post) {
+    private String postUserRollNo(Post post) {
         if ( post == null ) {
             return null;
         }
@@ -90,10 +90,10 @@ public class PostMapperImpl extends PostMapper {
         if ( user == null ) {
             return null;
         }
-        String username = user.getUsername();
-        if ( username == null ) {
+        String rollNo = user.getRollNo();
+        if ( rollNo == null ) {
             return null;
         }
-        return username;
+        return rollNo;
     }
 }

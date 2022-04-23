@@ -29,10 +29,10 @@ public class CommentsController {
                 .body(commentService.getAllCommentsForPost(postId));
     }
 
-    @GetMapping("/by-user/{userName}")
-    public ResponseEntity<List<CommentsDto>> getAllCommentsForUser(@PathVariable String userName){
+    @GetMapping("/by-user/{rollNo}")
+    public ResponseEntity<List<CommentsDto>> getAllCommentsForUser(@PathVariable String rollNo){
         return ResponseEntity.status(OK)
-                .body(commentService.getAllCommentsForUser(userName));
+                .body(commentService.getAllCommentsForUser(rollNo));
     }
 
 }

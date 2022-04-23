@@ -63,9 +63,9 @@ public class PostService {
     }
 
     @Transactional(readOnly = true)
-    public List<PostResponse> getPostsByUsername(String username) {
-        User user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException(username));
+    public List<PostResponse> getPostsByRollNo(String rollNo) {
+        User user = userRepository.findByRollNo(rollNo)
+                .orElseThrow(() -> new UsernameNotFoundException(rollNo));
         return postRepository.findByUser(user)
                 .stream()
                 .map(postMapper::mapToDto)

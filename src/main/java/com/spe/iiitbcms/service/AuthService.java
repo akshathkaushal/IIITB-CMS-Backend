@@ -42,8 +42,9 @@ public class AuthService {
 
     public void signup(RegisterRequest registerRequest) {
         User user = new User();
-        user.setUsername(registerRequest.getUsername());
+        user.setName(registerRequest.getName());
         user.setEmail(registerRequest.getEmail());
+        user.setRollNo(registerRequest.getRollNo());
         user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
         user.setCreated(Instant.now());
         user.setEnabled(false);
@@ -61,13 +62,13 @@ public class AuthService {
     public User getCurrentUser() {
         Jwt principal = (Jwt) SecurityContextHolder.
                 getContext().getAuthentication().getPrincipal();
-        return userRepository.findByUsername(principal.getSubject())
+        return userRepository.findByRollNo(principal.getSubject())
                 .orElseThrow(() -> new UsernameNotFoundException("User name not found - " + principal.getSubject()));
     }
 
     private void fetchUserAndEnable(VerificationToken verificationToken) {
-        String username = verificationToken.getUser().getUsername();
-        User user = userRepository.findByUsername(username).orElseThrow(() -> new CMSException("User not found with name - " + username));
+        String rollNo = verificationToken.getUser().getRollNo();
+        User user = userRepository.findByRollNo(rollNo).orElseThrow(() -> new CMSException("User not found with name - " + rollNo));
         user.setEnabled(true);
         userRepository.save(user);
     }
@@ -88,7 +89,7 @@ public class AuthService {
     }
 
     public AuthenticationResponse login(LoginRequest loginRequest) {
-        Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(),
+        Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getRollNo(),
                 loginRequest.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authenticate);
         String token = jwtProvider.generateToken(authenticate);
@@ -96,18 +97,18 @@ public class AuthService {
                 .authenticationToken(token)
                 .refreshToken(refreshTokenService.generateRefreshToken().getToken())
                 .expiresAt(Instant.now().plusMillis(jwtProvider.getJwtExpirationInMillis()))
-                .username(loginRequest.getUsername())
+                .rollNo(loginRequest.getRollNo())
                 .build();
     }
 
     public AuthenticationResponse refreshToken(RefreshTokenRequest refreshTokenRequest) {
         refreshTokenService.validateRefreshToken(refreshTokenRequest.getRefreshToken());
-        String token = jwtProvider.generateTokenWithUserName(refreshTokenRequest.getUsername());
+        String token = jwtProvider.generateTokenWithRollNo(refreshTokenRequest.getRollNo());
         return AuthenticationResponse.builder()
                 .authenticationToken(token)
                 .refreshToken(refreshTokenRequest.getRefreshToken())
                 .expiresAt(Instant.now().plusMillis(jwtProvider.getJwtExpirationInMillis()))
-                .username(refreshTokenRequest.getUsername())
+                .rollNo(refreshTokenRequest.getRollNo())
                 .build();
     }
 

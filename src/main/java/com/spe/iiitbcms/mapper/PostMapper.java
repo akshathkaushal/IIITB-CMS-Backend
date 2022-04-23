@@ -36,7 +36,7 @@ public abstract class PostMapper {
 
     @Mapping(target = "id", source = "postId")
     @Mapping(target = "subpostName", source = "subpost.name")
-    @Mapping(target = "userName", source = "user.username")
+    @Mapping(target = "rollNo", source = "user.rollNo")
     @Mapping(target = "commentCount", expression = "java(commentCount(post))")
     @Mapping(target = "duration", expression = "java(getDuration(post))")
     @Mapping(target = "upVote", expression = "java(isPostUpVoted(post))")

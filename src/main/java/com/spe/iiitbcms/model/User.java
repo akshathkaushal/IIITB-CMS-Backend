@@ -22,8 +22,10 @@ public class User {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long userId;
-    @NotBlank(message = "Username is required")
-    private String username;
+    @NotBlank(message = "Roll no. is required")
+    private String rollNo;
+    @NotBlank(message = "Name is required")
+    private String name;
     @NotBlank(message = "Password is required")
     private String password;
     @Email

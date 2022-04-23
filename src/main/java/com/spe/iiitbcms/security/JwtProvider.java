@@ -21,15 +21,15 @@ public class JwtProvider {
 
     public String generateToken(Authentication authentication) {
         User principal = (User) authentication.getPrincipal();
-        return generateTokenWithUserName(principal.getUsername());
+        return generateTokenWithRollNo(principal.getUsername());
     }
 
-    public String generateTokenWithUserName(String username) {
+    public String generateTokenWithRollNo(String rollNo) {
         JwtClaimsSet claims = JwtClaimsSet.builder()
                 .issuer("self")
                 .issuedAt(Instant.now())
                 .expiresAt(Instant.now().plusMillis(jwtExpirationInMillis))
-                .subject(username)
+                .subject(rollNo)
                 .claim("scope", "ROLE_USER")
                 .build();
 

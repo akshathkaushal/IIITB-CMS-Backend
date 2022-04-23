@@ -37,12 +37,12 @@ public class CommentService {
         Comment comment = commentMapper.map(commentsDto, post, authService.getCurrentUser());
         commentRepository.save(comment);
 
-        String message = mailContentBuilder.build(post.getUser().getUsername() + " posted a comment on your post." + POST_URL);
+        String message = mailContentBuilder.build(post.getUser().getName() + " ("+post.getUser().getRollNo() + ") " + " posted a comment on your post." + POST_URL);
         sendCommentNotification(message, post.getUser());
     }
 
     private void sendCommentNotification(String message, User user) {
-        mailService.sendMail(new NotificationEmail(user.getUsername() + " Commented on your post", user.getEmail(), message));
+        mailService.sendMail(new NotificationEmail(user.getName() + " ("+user.getRollNo()+") " + "Commented on your post", user.getEmail(), message));
     }
 
     public List<CommentsDto> getAllCommentsForPost(Long postId) {
@@ -52,9 +52,9 @@ public class CommentService {
                 .map(commentMapper::mapToDto).collect(toList());
     }
 
-    public List<CommentsDto> getAllCommentsForUser(String userName) {
-        User user = userRepository.findByUsername(userName)
-                .orElseThrow(() -> new UsernameNotFoundException(userName));
+    public List<CommentsDto> getAllCommentsForUser(String rollNo) {
+        User user = userRepository.findByRollNo(rollNo)
+                .orElseThrow(() -> new UsernameNotFoundException(rollNo));
         return commentRepository.findAllByUser(user)
                 .stream()
                 .map(commentMapper::mapToDto)
