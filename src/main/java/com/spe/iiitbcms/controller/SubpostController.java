@@ -26,8 +26,13 @@ public class SubpostController {
 
     @GetMapping
     public ResponseEntity<List<SubpostDto>> getAllSubposts() {
-        return ResponseEntity
-                .status(HttpStatus.OK)
+        return ResponseEntity.status(HttpStatus.OK)
                 .body(subpostService.getAll());
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<SubpostDto> getSubpost(@PathVariable Long id) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(subpostService.getSubpost(id));
     }
 }

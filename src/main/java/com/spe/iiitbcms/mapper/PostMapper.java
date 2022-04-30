@@ -48,7 +48,9 @@ public abstract class PostMapper {
     }
 
     String getDuration(Post post) {
-        return TimeAgo.using(post.getCreatedDate().toEpochMilli());
+        //return TimeAgo.using(post.getCreatedDate().toEpochMilli());
+        return post.getCreatedDate().toString();
+        // return "testingduration";
     }
 
     boolean isPostUpVoted(Post post) {

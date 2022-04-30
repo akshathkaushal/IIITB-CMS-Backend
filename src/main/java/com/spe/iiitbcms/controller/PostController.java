@@ -40,8 +40,8 @@ public class PostController {
         return status(HttpStatus.OK).body(postService.getPostsBySubpost(id));
     }
 
-    @GetMapping("by-user/{name}")
-    public ResponseEntity<List<PostResponse>> getPostsByRollNo(String rollNo) {
+    @GetMapping("by-user/{rollNo}")
+    public ResponseEntity<List<PostResponse>> getPostsByRollNo(@PathVariable String rollNo) {
         return status(HttpStatus.OK).body(postService.getPostsByRollNo(rollNo));
     }
 }

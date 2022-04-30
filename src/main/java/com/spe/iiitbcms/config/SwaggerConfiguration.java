@@ -15,7 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfiguration {
     @Bean
-    public Docket redditCloneApi() {
+    public Docket cmsApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.any())
@@ -26,10 +26,10 @@ public class SwaggerConfiguration {
 
     private ApiInfo getApiInfo() {
         return new ApiInfoBuilder()
-                .title("Reddit Clone API")
+                .title("IIITB CMS")
                 .version("1.0")
-                .description("API for Reddit Clone Application")
-                .contact(new Contact("Sai Upadhyayula", "http://programmingtechie.com", "xyz@email.com"))
+                .description("API for IIITB CMS Application")
+                .contact(new Contact("Akshath Kaushal", "http://website.com", "akshath@email.com"))
                 .license("Apache License Version 2.0")
                 .build();
     }

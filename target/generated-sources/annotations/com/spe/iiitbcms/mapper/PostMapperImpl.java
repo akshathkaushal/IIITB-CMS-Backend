@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-04-23T18:20:05+0530",
-    comments = "version: 1.3.1.Final, compiler: javac, environment: Java 11.0.14.1 (Ubuntu)"
+    date = "2022-04-30T13:37:09+0530",
+    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 11.0.15 (Private Build)"
 )
 @Component
 public class PostMapperImpl extends PostMapper {
@@ -51,18 +51,18 @@ public class PostMapperImpl extends PostMapper {
 
         PostResponse postResponse = new PostResponse();
 
+        postResponse.setId( post.getPostId() );
         postResponse.setSubpostName( postSubpostName( post ) );
         postResponse.setRollNo( postUserRollNo( post ) );
-        postResponse.setId( post.getPostId() );
         postResponse.setPostName( post.getPostName() );
         postResponse.setUrl( post.getUrl() );
         postResponse.setDescription( post.getDescription() );
         postResponse.setVoteCount( post.getVoteCount() );
 
-        postResponse.setDuration( getDuration(post) );
-        postResponse.setDownVote( isPostDownVoted(post) );
         postResponse.setCommentCount( commentCount(post) );
+        postResponse.setDuration( getDuration(post) );
         postResponse.setUpVote( isPostUpVoted(post) );
+        postResponse.setDownVote( isPostDownVoted(post) );
 
         return postResponse;
     }

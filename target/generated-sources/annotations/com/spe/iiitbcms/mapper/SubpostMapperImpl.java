@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-04-22T20:11:55+0530",
-    comments = "version: 1.3.1.Final, compiler: javac, environment: Java 11.0.14.1 (Ubuntu)"
+    date = "2022-04-30T14:53:58+0530",
+    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 11.0.15 (Private Build)"
 )
 @Component
 public class SubpostMapperImpl implements SubpostMapper {
