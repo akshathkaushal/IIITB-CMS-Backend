@@ -1,0 +1,15 @@
+09/May/2022:00:57:20 281 [StartupInfoLogger.java] [INFO] com.spe.iiitbcms.SpringIIITcmsApplication Starting SpringIIITcmsApplication using Java 11.0.15 on akshathkaushal-Latitude-5420 with PID 148646 (/home/akshathkaushal/Desktop/Work/DevOps/iiitbcms/target/classes started by akshathkaushal in /home/akshathkaushal/Desktop/Work/DevOps/iiitbcms)
+09/May/2022:00:57:20 284 [SpringApplication.java] [INFO] com.spe.iiitbcms.SpringIIITcmsApplication No active profile set, falling back to default profiles: default
+09/May/2022:00:57:23 649 [StartupInfoLogger.java] [INFO] com.spe.iiitbcms.SpringIIITcmsApplication Started SpringIIITcmsApplication in 3.606 seconds (JVM running for 4.312)
+09/May/2022:00:57:43 917 [AuthController.java] [INFO] com.spe.iiitbcms.controller.AuthController Logging in
+09/May/2022:01:00:17 698 [PostController.java] [INFO] com.spe.iiitbcms.controller.PostController Successfully fetched posts for roll number IMT2018501
+09/May/2022:01:01:06 030 [AuthController.java] [INFO] com.spe.iiitbcms.controller.AuthController Logging in
+09/May/2022:01:01:20 300 [SubpostController.java] [INFO] com.spe.iiitbcms.controller.SubpostController Successfully created post
+09/May/2022:01:01:36 798 [SubpostController.java] [INFO] com.spe.iiitbcms.controller.SubpostController Successfully fetched subposts
+09/May/2022:01:02:33 375 [CommentsController.java] [INFO] com.spe.iiitbcms.controller.CommentsController Successfully fetched comments for the user with roll number imt2018501
+09/May/2022:01:02:50 688 [VoteController.java] [INFO] com.spe.iiitbcms.controller.VoteController Successfully voted
+09/May/2022:01:03:08 853 [VoteController.java] [INFO] com.spe.iiitbcms.controller.VoteController Successfully voted
+09/May/2022:01:03:52 407 [PostController.java] [INFO] com.spe.iiitbcms.controller.PostController Successfully fetched posts for roll number IMT2018501
+09/May/2022:01:04:11 137 [SubpostController.java] [INFO] com.spe.iiitbcms.controller.SubpostController Successfully fetched subposts
+09/May/2022:01:04:38 029 [AuthController.java] [INFO] com.spe.iiitbcms.controller.AuthController Logging in
+09/May/2022:01:04:51 629 [PostController.java] [INFO] com.spe.iiitbcms.controller.PostController Successfully created post
