@@ -33,7 +33,7 @@ pipeline {
             steps {
         		script {
         		    withCredentials([string(credentialsId: 'akshathkaushal7', variable: 'dockerhub-pwd')]) {
-                        sh 'docker login -u akshathkaushal7 -p ${dockerhubpwd}'
+                        sh 'docker login -u akshathkaushal7 -p ${dockerhub-pwd}'
                         sh 'docker push akshathkaushal7/spe-project-backend'
                     }
         		}
