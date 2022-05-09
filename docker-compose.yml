@@ -1,0 +1,34 @@
+version: "3.7"
+services:
+  app:
+    container_name: iiitb-cms
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - iiitbcms-network
+    ports:
+      - "8090:8090"
+    restart: always
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/spring-spe-iiitbcms?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: password
+  db:
+    image: "mysql:latest"
+    container_name: mysql-db
+    restart: always
+    networks:
+      - iiitbcms-network
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: spring-spe-iiitbcms
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+
+networks:
+  iiitbcms-network:
+    driver: bridge

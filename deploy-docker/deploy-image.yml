@@ -1,0 +1,8 @@
+---
+- name: Pull docker image of Backend
+  hosts: all
+  tasks:
+    - name: Pull Backend image
+      docker_image:
+        name: akshathkaushal7/spe-project-backend:latest
+        source: pull
