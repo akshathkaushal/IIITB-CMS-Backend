@@ -48,7 +48,10 @@ pipeline {
         }
         stage('Deploy using Ansible') {
             steps {
-                ansiblePlaybook become: true, installation: 'ansibleenv', inventory: 'deploy-docker/inventory', playbook: 'deploy-docker/deploy-image.yml', vaultCredentialsId: 'ansible_vault'
+//                 ansiblePlaybook become: true, installation: 'ansibleenv', inventory: 'deploy-docker/inventory', playbook: 'deploy-docker/deploy-image.yml', vaultCredentialsId: 'ansible_vault'
+                script {
+                    sh 'ansible-playbook -i deploy-docker/inventory deploy-docker/deploy-image.yml --extra-vars "ansible_sudo_pass=akshath"'
+                }
             }
         }
     }
