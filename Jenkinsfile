@@ -48,7 +48,7 @@ pipeline {
         }
         stage('Deploy using Ansible') {
             steps {
-                ansiblePlaybook becomeUser: null, colorized: true, disableHostKeyChecking:true, installation: 'ansibleenv', inventory: 'deploy-docker/inventory', playbook: 'deploy-docker/deploy-image.yml', sudoUser:null
+                ansiblePlaybook become: true, installation: 'ansibleenv', inventory: 'deploy-docker/inventory', playbook: 'deploy-docker/deploy-image.yml', vaultCredentialsId: 'ansible_vault'
             }
         }
     }
