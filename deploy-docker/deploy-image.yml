@@ -1,8 +1,7 @@
 ---
 - name: setup Mysql with sql db and remote login
   become: yes
-  vars_files:
-    - secret.yml
+
   hosts: all
   tasks:
     - name: Installing Mysql and dependencies
