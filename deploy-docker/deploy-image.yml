@@ -1,5 +1,5 @@
 ---
-- name: setup Mysql with sql db and remote login
+- name: setup Mysql
   become: yes
 
   hosts: all
@@ -48,6 +48,10 @@
 - name: Pull docker image of Backend
   hosts: all
   tasks:
+    - name: Change the jdbc ip
+      shell: echo $SPRING_DATASOURCE_URL
+      environment:
+        - SPRING_DATASOURCE_URL=jdbc:mysql://172.17.0.1:3306/spring-spe-iiitbcms
     - name: Pull Backend image
       docker_image:
         name: akshathkaushal7/spe-project-backend:latest
