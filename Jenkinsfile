@@ -3,6 +3,10 @@ pipeline {
     tools {
         maven 'MAVEN'
     }
+    environment {
+        dockerImage = ''
+        registry = 'akshathkaushal7/spe-project-backend'
+    }
     stages {
         stage('Download the git repo') {
             steps {
@@ -25,23 +29,8 @@ pipeline {
         stage('Build docker image') {
         	steps {
         		script {
-        			sh 'docker build -t akshathkaushal7/spe-project-backend .'
+        			dockerImage = docker.build registry
         		}
-        	}
-        }
-        stage('Push docker image to Dockerhub') {
-            steps {
-        		script {
-        		    withCredentials([string(credentialsId: 'akshathkaushal7', variable: 'dockerhub-pwd')]) {
-                        sh 'docker login -u akshathkaushal7 -p ${dockerhub-pwd}'
-                        sh 'docker push akshathkaushal7/spe-project-backend'
-                    }
-        		}
-        	}
-        }
-        stage('Deploy using Ansible') {
-        	steps {
-        		ansiblePlaybook becomeUser: null, colorized: true, disableHostKeyChecking:true, installation: 'ansibleenv', inventory: 'deploy-docker/inventory', playbook: 'deploy-docker/deploy-image.yml', sudoUser:null
         	}
         }
     }
