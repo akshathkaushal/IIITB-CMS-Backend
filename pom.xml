@@ -152,6 +152,12 @@
             <version>3.22.0</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>io.sentry</groupId>
+            <artifactId>sentry-spring-boot-starter</artifactId>
+            <version>5.7.4</version>
+        </dependency>
     </dependencies>
 
     <build>

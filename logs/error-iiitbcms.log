@@ -2,3 +2,7 @@
 09/May/2022:00:58:58 091 [PostController.java] [ERROR] com.spe.iiitbcms.controller.PostController Error in creating post
 09/May/2022:01:02:57 525 [VoteController.java] [ERROR] com.spe.iiitbcms.controller.VoteController Voting failed
 09/May/2022:01:03:29 554 [PostController.java] [ERROR] com.spe.iiitbcms.controller.PostController Error in creating post
+15/May/2022:18:35:58 356 [CommentsController.java] [ERROR] com.spe.iiitbcms.controller.CommentsController Comment could not be created
+15/May/2022:18:36:14 316 [VoteController.java] [ERROR] com.spe.iiitbcms.controller.VoteController Voting failed
+15/May/2022:18:36:18 837 [VoteController.java] [ERROR] com.spe.iiitbcms.controller.VoteController Voting failed
+15/May/2022:19:19:20 756 [AuthController.java] [ERROR] com.spe.iiitbcms.controller.AuthController Account could not be activated due to some error
