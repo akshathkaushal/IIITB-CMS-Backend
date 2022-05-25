@@ -14,10 +14,10 @@ jobs:
     docker:
       - image: cimg/openjdk:11.0
       - image: mysql:latest
-      environment:
-        MYSQL_DATABASE: spring-spe-iiitbcms
-        MYSQL_PASSWORD: password
-        MYSQL_ROOT_PASSWORD: password
+        environment:
+          MYSQL_DATABASE: spring-spe-iiitbcms
+          MYSQL_PASSWORD: password
+          MYSQL_ROOT_PASSWORD: password
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
