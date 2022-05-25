@@ -4,7 +4,18 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/spring-spe-iiitbcms?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: password
 
+    services:
+      mysql:
+        image: mysql:latest
+        env:
+          MYSQL_DATABASE: spring-spe-iiitbcms
+          MYSQL_PASSWORD: password
+          MYSQL_ROOT_PASSWORD: password
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 11
@@ -12,6 +23,14 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+
+      - name: install dockerize
+        run: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+        env:
+          DOCKERIZE_VERSION: v0.6.1
+
+      - name: Wait for database connectivity
+        run: dockerize -wait tcp://localhost:3306 -timeout 1m
 
       - name: Build with maven
         run: mvn --batch-mode --update-snapshots package
