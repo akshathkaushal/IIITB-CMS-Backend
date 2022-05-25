@@ -1,0 +1,7 @@
+name: Java Linter
+on: [push]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: nikitasavinov/checkstyle-action@0.5.1

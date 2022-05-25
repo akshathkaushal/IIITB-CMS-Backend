@@ -2,11 +2,6 @@ name: Java CI
 on: [push]
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: nikitasavinov/checkstyle-action@0.5.1
-
   build:
     runs-on: ubuntu-latest
     env:
