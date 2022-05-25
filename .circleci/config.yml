@@ -2,13 +2,13 @@ version: 2.1
 jobs:
   build-and-test:
     docker:
-      - image: cimg/openjdk:11.0
+      - image: circleci/openjdk:11.0.3-jdk-stretch
         environment:
           SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/spring-spe-iiitbcms?createDatabaseIfNotExist=true
           SPRING_DATASOURCE_USERNAME: root
           SPRING_DATASOURCE_PASSWORD: password
 
-      - image: mysql:latest
+      - image: circleci/mysql:5.7
         environment:
           MYSQL_DATABASE: spring-spe-iiitbcms
           MYSQL_PASSWORD: password
