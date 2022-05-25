@@ -5,7 +5,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/spring-spe-iiitbcms?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/spring-spe-iiitbcms?createDatabaseIfNotExist=true
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: password
 
