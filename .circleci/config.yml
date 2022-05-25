@@ -3,6 +3,11 @@ jobs:
   build-and-test:
     docker:
       - image: cimg/openjdk:11.0
+        environment:
+          SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/spring-spe-iiitbcms?createDatabaseIfNotExist=true
+          SPRING_DATASOURCE_USERNAME: root
+          SPRING_DATASOURCE_PASSWORD: password
+
       - image: mysql:latest
         environment:
           MYSQL_DATABASE: spring-spe-iiitbcms
