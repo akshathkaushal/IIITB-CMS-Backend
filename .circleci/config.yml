@@ -11,14 +11,13 @@ jobs:
 
       - image: circleci/mysql:5.7
         environment:
-          MYSQL_DATABASE: testdb
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_ROOT_PASSWORD: ''
 
     steps:
       - checkout
       - run:
-          - name: Wait for Database Connection
+          - name: Wait
             command: dockerize -wait tcp://localhost:3306 -timeout 1m
 
       - run: sudo apt-get install mysql-client
