@@ -35,7 +35,7 @@ jobs:
         run: dockerize -wait tcp://localhost:3306 -timeout 1m
 
       - name: Build with maven
-        run: mvn --batch-mode --update-snapshots package
+        run: mvn --batch-mode --update-snapshots package -DskipTests
 
       - name: Verify and test with maven
         run: mvn --batch-mode --update-snapshots verify
