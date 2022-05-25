@@ -5,12 +5,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/spring-spe-iiitbcms?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/spring-spe-iiitbcms?createDatabaseIfNotExist=true
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: password
 
     services:
-      mysql:
+      mysql-db:
         image: mysql:latest
         env:
           MYSQL_DATABASE: spring-spe-iiitbcms
@@ -26,19 +26,16 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
 
-      - name: Start MySQL
-        run: sudo chown mysql:mysql -R /var/lib/mysql && sudo systemctl start mysql
+      - name: Install dockerize
+        run: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+        env:
+          DOCKERIZE_VERSION: v0.6.1
+
+      - name: Wait for DB
+        run: dockerize -wait tcp://localhost:3306 -timeout 1m
 
       - name: Build with maven
         run: mvn --batch-mode --update-snapshots package
 
       - name: Verify and test with maven
         run: mvn --batch-mode --update-snapshots verify
-#
-#      - name: install dockerize
-#          run: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-#          env:
-#            DOCKERIZE_VERSION: v0.6.1
-#
-#            - name: Wait for database connectivity
-#              run: dockerize -wait tcp://localhost:3306 -timeout 1m
