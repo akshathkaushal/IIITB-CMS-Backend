@@ -27,9 +27,9 @@ jobs:
       - run:
           name: Build
           command: mvn -B -DskipTests clean package
-      - run:
-          name: Test
-          command: mvn test
+#      - run:
+#          name: Test
+#          command: mvn test
 
 workflows:
   sample:
