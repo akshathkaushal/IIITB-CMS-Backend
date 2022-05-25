@@ -27,7 +27,7 @@ jobs:
           distribution: 'adopt'
 
       - name: Start MySQL
-        run: sudo systemctl start mysql
+        run: sudo chown mysql:mysql -R /var/lib/mysql && sudo systemctl start mysql
 
       - name: Build with maven
         run: mvn --batch-mode --update-snapshots package
