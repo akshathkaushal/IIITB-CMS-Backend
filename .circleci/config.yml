@@ -18,6 +18,11 @@ jobs:
     steps:
       - checkout
       - run:
+          - name: Wait for Database Connection
+            command: dockerize -wait tcp://localhost:3306 -timeout 1m
+
+      - run: sudo apt-get install mysql-client
+      - run:
           name: Build
           command: mvn -B -DskipTests clean package
       - run:
