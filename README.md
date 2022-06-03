@@ -6,16 +6,11 @@
 Contains backend code for IIITB CMS
 
 ### Running the project
-#### Clean the target directory
-``` mvn clean ```
-#### Install the dependencies
-``` mvn install ```
-#### Compile the Java source classes
-``` mvn compiler:compile ```
-#### Compile the test classes
-``` mvn compiler:testCompile ```
-#### Build the project and package
-``` mvn build package ```
+#### Clean the target directory `mvn clean`
+#### Install the dependencies   `mvn install`
+#### Compile the Java source classes    `mvn compiler:compile`
+#### Compile the test classes   `mvn compiler:testCompile`
+#### Build the project and package  `mvn build package`
 
 ***
 
