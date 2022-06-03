@@ -5,4 +5,27 @@
 # IIITB CMS Backend
 Contains backend code for IIITB CMS
 
+### Running the project
+#### Clean the target directory
+``` mvn clean ```
 
+#### Install the dependencies
+``` mvn install ```
+
+#### Compile the Java source classes
+``` mvn compiler:compile ```
+
+#### Compile the test classes
+``` mvn compiler:testCompile ```
+
+#### Build the project and package
+``` mvn build package ```
+
+***
+### API Documentation
+Check the API docs at [http://localhost:8090/swagger-ui.html#/](http://localhost:8090/swagger-ui.html#/) after running the project.
+***
+
+# For IIITBSoC
+Queries welcome at [akshath.kaushal@iiitb.ac.in](mailto:akshath.kaushal@iiitb.ac.in)    
+Check the front end repository [here](https://github.com/akshathkaushal/IIITB-CMS-Frontend)
