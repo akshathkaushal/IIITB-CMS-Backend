@@ -1,0 +1,7 @@
+name: Code Coverage Summary
+on: [push]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: irongut/CodeCoverageSummary@v1.2.0
