@@ -1,5 +1,6 @@
 ![CircleCI](https://circleci.com/gh/akshathkaushal/IIITB-CMS-Backend.svg?style=svg&circle-token=82792b994f6b5a5e5baf538ed6d2f2b50ea144b7)
 ![Repo Size](https://img.shields.io/github/repo-size/akshathkaushal/IIITB-CMS-Backend?style=plastic)
+![Last Commit](https://img.shields.io/github/last-commit/akshathkaushal/IIITB-CMS-Backend/master)
 ![Maven](https://github.com/akshathkaushal/IIITB-CMS-Backend/actions/workflows/mvn-verify.yml/badge.svg)
 ![Lint](https://github.com/akshathkaushal/IIITB-CMS-Backend/actions/workflows/linter.yml/badge.svg)
 
