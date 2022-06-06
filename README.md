@@ -8,6 +8,7 @@
 ![Last Commit](https://img.shields.io/github/last-commit/akshathkaushal/IIITB-CMS-Backend/master)
 ![Open Issues](https://img.shields.io/github/issues-raw/akshathkaushal/IIITB-CMS-Backend)
 ![Pull Requests](https://img.shields.io/github/issues-pr-raw/akshathkaushal/IIITB-CMS-Backend)
+![visitor badge](https://visitor-badge.glitch.me/badge?page_id=akshathkaushal.IIITB-CMS-Backend&left_text=Visitors)
 
 ![Forks](https://img.shields.io/github/forks/akshathkaushal/IIITB-CMS-Backend?style=social)
 ![Stars](https://img.shields.io/github/stars/akshathkaushal/IIITB-CMS-Backend?style=social)
