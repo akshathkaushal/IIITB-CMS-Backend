@@ -1,0 +1,5 @@
+name: "Ansible"
+description: "Running the playbook after configuring environment"
+runs:
+  using: "docker"
+  image: "Dockerfile"
