@@ -46,7 +46,6 @@
 
 - name: Pull docker image of Backend
   hosts: all
-  gather_facts: no
   tasks:
     - name: Change the jdbc ip
       shell: echo $SPRING_DATASOURCE_URL
