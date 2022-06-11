@@ -46,10 +46,10 @@
 
 - name: Pull docker image of Backend
   hosts: all
+  gather_facts: no
   tasks:
     - name: Change the jdbc ip
       shell: echo $SPRING_DATASOURCE_URL
-      gather_facts: no
       environment:
         - SPRING_DATASOURCE_URL=jdbc:mysql://172.17.0.1:3306/spring-spe-iiitbcms
     - name: Pull Backend image
