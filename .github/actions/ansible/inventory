@@ -1,2 +1,6 @@
 [AWS]
 ec2-3-109-123-124.ap-south-1.compute.amazonaws.com ansible_user=ubuntu
+
+[all:vars]
+ansible_connection=ssh
+
