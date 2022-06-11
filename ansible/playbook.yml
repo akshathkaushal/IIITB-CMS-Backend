@@ -1,9 +1,9 @@
 ---
-- name: setup Mysql
+- name: Setup mysql
   become: yes
   hosts: all
   tasks:
-    - name: Installing Mysql and dependencies
+    - name: Installing mysql and dependencies
       package:
         name: "{{item}}"
         state: present
@@ -49,6 +49,7 @@
   tasks:
     - name: Change the jdbc ip
       shell: echo $SPRING_DATASOURCE_URL
+      gather_facts: no
       environment:
         - SPRING_DATASOURCE_URL=jdbc:mysql://172.17.0.1:3306/spring-spe-iiitbcms
     - name: Pull Backend image
