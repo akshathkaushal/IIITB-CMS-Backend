@@ -2,6 +2,7 @@
 
 ![Maven](https://github.com/akshathkaushal/IIITB-CMS-Backend/actions/workflows/mvn-verify.yml/badge.svg)
 ![Lint](https://github.com/akshathkaushal/IIITB-CMS-Backend/actions/workflows/linter.yml/badge.svg)
+![AWS deployment](https://github.com/akshathkaushal/IIITB-CMS-Backend/actions/workflows/deploy.yml/badge.svg)
 
 ![Repo Size](https://img.shields.io/github/repo-size/akshathkaushal/IIITB-CMS-Backend)
 ![Commits](https://img.shields.io/github/commit-activity/w/akshathkaushal/IIITB-CMS-Backend)
